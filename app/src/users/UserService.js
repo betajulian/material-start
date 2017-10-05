@@ -50,6 +50,14 @@
     return {
       loadAllUsers : function() {
         // Simulate async nature of real remote calls
+        var users = $.ajax({
+          url: 'https://randomuser.me/api/',
+          dataType: 'json',
+          success: function(data) {
+            console.log(data.results);
+            //users = data.results;
+          }
+        });
         return $q.when(users);
       }
     };

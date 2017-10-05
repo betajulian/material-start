@@ -1,7 +1,7 @@
 (function(){
 
   angular
-       .module('users')
+       .module('users', ['ngSanitize'])
        .controller('UserController', [
           'userService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log',
           UserController
@@ -13,7 +13,7 @@
    * @param avatarsService
    * @constructor
    */
-  function UserController( userService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
+  function UserController( userService, $mdSidenav, $mdBottomSheet, $timeout, $log, $sce ) {
     var self = this;
 
     self.selected     = null;
@@ -27,8 +27,10 @@
     userService
           .loadAllUsers()
           .then( function( users ) {
+            users = users.results[0];
+            console.log('check users: ', users);
             self.users    = [].concat(users);
-            self.selected = users[0];
+            self.selected = users;
           });
 
     // *********************************
@@ -42,11 +44,17 @@
       $mdSidenav('left').toggle();
     }
 
+    function trustSrc(src) {
+      console.log('check the src: ', src);
+      return $sce.trustAsResourceUrl(src);
+    }
+
     /**
      * Select the current avatars
      * @param menuId
      */
     function selectUser ( user ) {
+      console.log('check user in selectUser: ', user);
       self.selected = angular.isNumber(user) ? self.users[user] : user;
     }
 
