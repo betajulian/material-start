@@ -34,7 +34,7 @@
     // *********************************
     // Internal methods
     // *********************************
-
+    // sample commit
     /**
      * Hide or Show the 'left' sideNav area
      */
