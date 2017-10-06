@@ -16,6 +16,16 @@ html, body {
   width: 36px;
 }
 
+.options {
+  background-color: transparent;
+  border: none;
+  height: 38px;
+  margin: 16px;
+  width: 36px;
+  position: absolute;
+  right: 0;
+}
+
 
 md-toolbar h3 {
   margin: auto;

@@ -20,11 +20,14 @@
     self.users        = [ ];
     self.selectUser   = selectUser;
     self.toggleList   = toggleUsersList;
+    self.toggleOption = toggleOptionsList;
     self.makeContact        = makeContact;
     self.makeContactPhone   = makeContactPhone;
     self.makeContactTwitter = makeContactTwitter;
     self.makeContactGoogleP = makeContactGoogleP;
     self.makeContactHangout = makeContactHangout;
+    self.sortByName   = sortByName;
+    self.sortByAge    = sortByAge;
 
     // Load all registered users
 
@@ -60,7 +63,12 @@
       return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
     function toggleUsersList() {
+      console.log('toggleUsersList');
       $mdSidenav('left').toggle();
+    }
+    function toggleOptionsList() {
+      console.log('toggleOptionsList');
+      $mdSidenav('options').toggle();
     }
 
     function trustSrc(src) {
@@ -185,7 +193,7 @@
         function ContactSheetController( $mdBottomSheet ) {
           this.user = selectedUser;
           this.items = [
-            { name: 'Google+'     , icon: 'google_plus' , icon_url: 'assets/svg/google_plus.svg', contact_detail: this.user.email}
+            { name: 'Google+'     , icon: 'google_plus' , icon_url: 'assets/svg/mail.svg', contact_detail: this.user.email}
           ];
           this.contactUser = function(action) {
             // The actually contact process has not been implemented...

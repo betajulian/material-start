@@ -26,15 +26,32 @@
   <body ng-app="starterApp" layout="column" ng-controller="UserController as ul" ng-cloak>
 
     <md-toolbar layout="row">
-      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+      <md-button class="menu" ng-click="ul.toggleList()" aria-label="Show User List">
         <md-icon md-svg-icon="menu" ></md-icon>
       </md-button>
       <h1>FakeBook: Finding Actors Simply</h1>
+      <md-button class="options" ng-click="ul.toggleOption()" aria-label="Show Options List">
+        <md-icon md-svg-icon="options" ></md-icon>
+      </md-button>
     </md-toolbar>
 
     <div flex layout="row">
+        <md-sidenav md-component-id="options" class="md-sidenav-right md-whiteframe-4dp" >
+          <md-list>
+            <md-list-item>
+              <md-button ng-click="ul.sortByName()" aria-label="Show Options List">
+                <div>Sort List by Name (Default)</div>
+              </md-button>
+            </md-list-item>
+            <md-list-item>
+              <md-button ng-click="ul.sortByAge()" aria-label="Show Options List">
+                <div>Sort List by Age</div>
+              </md-button>
+            </md-list-item>
+          </md-list>
+        </md-sidenav>
 
-        <md-sidenav  ng-click="ul.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
+        <md-sidenav ng-click="ul.toggleList()" md-component-id="left" class="md-whiteframe-z2" >
           <md-list>
             <md-list-item ng-repeat="it in ul.users">
                 <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
@@ -55,7 +72,7 @@
             <md-icon md-svg-icon="twitter"></md-icon>
           </md-button>
           <md-button class="share" md-no-ink ng-click="ul.makeContactGoogleP(ul.selected)">
-            <md-icon md-svg-icon="google_plus"></md-icon>
+            <md-icon md-svg-icon="mail"></md-icon>
           </md-button>
           <md-button class="share" md-no-ink ng-click="ul.makeContactHangout(ul.selected)">
             <md-icon md-svg-icon="hangouts"></md-icon>
@@ -90,8 +107,10 @@
                   $mdIconProvider
                       .defaultIconSet("./assets/svg/avatars.svg", 128)
                       .icon("menu"       , "./assets/svg/menu.svg"        , 24)
+                      .icon("options"    , "./assets/svg/options.svg"     , 24)
                       .icon("share"      , "./assets/svg/share.svg"       , 24)
                       .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
+                      .icon("mail"       , "./assets/svg/mail.svg"        , 512)
                       .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
                       .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
                       .icon("phone"      , "./assets/svg/phone.svg"       , 512);
