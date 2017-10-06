@@ -85,6 +85,14 @@
       self.selected = angular.isNumber(user) ? self.users[user] : user;
     }
 
+    function sortByName() {
+
+    }
+
+    function sortByAge() {
+      
+    }
+
     /**
      * Show the Contact view in the bottom sheet
      */
