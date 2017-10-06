@@ -51,7 +51,7 @@
       loadAllUsers : function() {
         // Simulate async nature of real remote calls
         var users = $.ajax({
-          url: 'https://randomuser.me/api/',
+          url: 'https://randomuser.me/api/?results=10',
           dataType: 'json',
           success: function(data) {
             console.log(data.results);

@@ -26,12 +26,12 @@
 
     userService
           .loadAllUsers()
-          .then( function( users ) {
-            users = users.results[0];
-            users.dob_year = users.dob.substring(0,4);
-            console.log('check users: ', users);
-            self.users    = [].concat(users);
-            self.selected = users;
+          .then( function( usersAll ) {
+            usersAll.results.forEach(function (users) {
+              users.dob_year = users.dob.substring(0,4);
+              self.users    = self.users.concat(users);
+              self.selected = users;
+            });
           });
 
     // *********************************
