@@ -55,13 +55,14 @@ md-list-item > button {
   border: none;
   width: 48px;
   height: 48px;
-  margin: 8px auto 16px 0;
-  position: absolute;
-  top: 10px;
-  right: 25px;
+  margin: 2px auto 2px 0;
 }
 
 #content md-icon.avatar {
+  margin-top: 10px;
+}
+
+#content md-icon.avatar-big {
   margin-top: 10px;
 }
 
@@ -107,6 +108,22 @@ md-toolbar h1 {
   position: relative;
   width: 128px;
   height: 128px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0px;
+  vertical-align: middle;
+  zoom:0.70;
+  transform: translateZ(0);
+  -webkit-transform: scale(0.70);
+  -moz-transform:scale(0.70);
+}
+
+.avatar-big {
+  position: relative;
+  width: 400px;
+  height: 400px;
   border: 1px solid #ddd;
   border-radius: 50%;
   display: inline-block;

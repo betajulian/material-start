@@ -29,7 +29,7 @@
       <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
         <md-icon md-svg-icon="menu" ></md-icon>
       </md-button>
-      <h1>FakeBook</h1>
+      <h1>FakeBook: Finding Actors Simply</h1>
     </md-toolbar>
 
     <div flex layout="row">
@@ -46,15 +46,25 @@
         </md-sidenav>
 
         <md-content flex id="content">
-          <img src="{{ul.selected.picture.thumbnail}}" class="avatar"/>
+          <img src="{{ul.selected.picture.large}}" class="avatar-big"/>
+          <md-button class="share" md-no-ink ng-click="ul.makeContactPhone(ul.selected)">
+            <md-icon md-svg-icon="phone"></md-icon>
+          </md-button>
+          <md-button class="share" md-no-ink ng-click="ul.makeContactTwitter(ul.selected)">
+            <md-icon md-svg-icon="twitter"></md-icon>
+          </md-button>
+          <md-button class="share" md-no-ink ng-click="ul.makeContactGoogleP(ul.selected)">
+            <md-icon md-svg-icon="google_plus"></md-icon>
+          </md-button>
+          <md-button class="share" md-no-ink ng-click="ul.makeContactHangout(ul.selected)">
+            <md-icon md-svg-icon="hangouts"></md-icon>
+          </md-button>
           <!-- <h2>{{ul.selected.name}}</h2>
           <p>{{ul.selected.content}}</p> -->
           <h2>{{ul.selected.name.first}} {{ul.selected.name.last}}</h2>
+          <h3>Bio</h3>
           <p>Born in {{ul.selected.dob_year}}, {{ul.selected.name.first}} now lives in {{ul.selected.location.city}}</p>
-
-          <md-button class="share" md-no-ink ng-click="ul.makeContact(ul.selected)" aria-label="Share with {{ ul.selected.name }}">
-            <md-icon md-svg-icon="share"></md-icon>
-          </md-button>
+          
         </md-content>
 
     </div>
