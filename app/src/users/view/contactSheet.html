@@ -8,7 +8,7 @@
       <md-list-item ng-repeat="item in vm.items">
         <md-button ng-click="vm.contactUser(item)">
             <md-icon md-svg-icon="{{ item.icon_url }}"></md-icon>
-            {{item.name}}
+            {{item.name}}  ·  {{item.contact_detail}}
         </md-button>
       </md-list-item>
     </md-list>

@@ -78,10 +78,10 @@
         function ContactSheetController( $mdBottomSheet ) {
           this.user = selectedUser;
           this.items = [
-            { name: 'Phone'       , icon: 'phone'       , icon_url: 'assets/svg/phone.svg'},
-            { name: 'Twitter'     , icon: 'twitter'     , icon_url: 'assets/svg/twitter.svg'},
-            { name: 'Google+'     , icon: 'google_plus' , icon_url: 'assets/svg/google_plus.svg'},
-            { name: 'Hangout'     , icon: 'hangouts'    , icon_url: 'assets/svg/hangouts.svg'}
+            { name: 'Phone'       , icon: 'phone'       , icon_url: 'assets/svg/phone.svg',       contact_detail: this.user.phone},
+            { name: 'Twitter'     , icon: 'twitter'     , icon_url: 'assets/svg/twitter.svg',     contact_detail: this.user.login.username},
+            { name: 'Google+'     , icon: 'google_plus' , icon_url: 'assets/svg/google_plus.svg', contact_detail: this.user.email},
+            { name: 'Hangout'     , icon: 'hangouts'    , icon_url: 'assets/svg/hangouts.svg',    contact_detail: 'https://hangouts.google.com/'}
           ];
           this.contactUser = function(action) {
             // The actually contact process has not been implemented...
