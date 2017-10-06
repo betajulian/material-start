@@ -86,11 +86,18 @@
     }
 
     function sortByName() {
-
+      console.log('self.users: ', self.users);
+      self.users.sort(function(a, b){ 
+        return (a.name.first > b.name.first) ? 1 : ((b.name.first > a.name.first) ? -1 : 0);
+      });
     }
 
     function sortByAge() {
-      
+      console.log('self.users before: ', self.users);
+      self.users.sort(function(a, b){ 
+        return a.age - b.age;
+      });
+      console.log('self.users after: ', self.users);
     }
 
     /**
