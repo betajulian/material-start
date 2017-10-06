@@ -39,6 +39,7 @@
             <md-list-item ng-repeat="it in ul.users">
                 <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
                   <img src="{{it.picture.thumbnail}}" class="avatar"/>
+                  {{it.gender_c}}, {{it.age}}<br>
                   {{it.name.first}} {{it.name.last}}
                 </md-button>
             </md-list-item>

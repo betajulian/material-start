@@ -38,6 +38,8 @@
 
             usersAll.results.forEach(function (users) {
               users.dob_year = users.dob.substring(0,4);
+              users.gender_c = ( users.gender == "male" ) ? 'M' : 'F';
+              users.age     = calculateAge(users.dob);
               self.users    = self.users.concat(users);
               self.selected = users;
             });
@@ -50,6 +52,13 @@
     /**
      * Hide or Show the 'left' sideNav area
      */
+    function calculateAge(birthday) { // birthday is a date
+      birthday = new Date(birthday);
+      console.log('birthday: ', birthday);
+      var ageDifMs = Date.now() - birthday.getTime();
+      var ageDate = new Date(ageDifMs); // miliseconds from epoch
+      return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
     function toggleUsersList() {
       $mdSidenav('left').toggle();
     }
@@ -119,7 +128,8 @@
         function ContactSheetController( $mdBottomSheet ) {
           this.user = selectedUser;
           this.items = [
-            { name: 'Phone'       , icon: 'phone'       , icon_url: 'assets/svg/phone.svg',       contact_detail: this.user.phone}
+            { name: 'Phone'       , icon: 'phone'       , icon_url: 'assets/svg/phone.svg',       contact_detail: this.user.phone},
+            { name: 'Cell'        , icon: 'phone'       , icon_url: 'assets/svg/phone.svg',       contact_detail: this.user.cell}
           ];
           this.contactUser = function(action) {
             // The actually contact process has not been implemented...
