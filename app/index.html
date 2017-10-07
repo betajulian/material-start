@@ -34,57 +34,63 @@
         <md-icon md-svg-icon="options" ></md-icon>
       </md-button>
     </md-toolbar>
-
-    <div flex layout="row">
-        <md-sidenav md-component-id="options" class="md-sidenav-right md-whiteframe-4dp" >
-          <md-list>
-            <md-list-item>
-              <md-button ng-click="ul.sortByName()" aria-label="Show Options List">
-                <div>Sort List by Name (Default)</div>
-              </md-button>
-            </md-list-item>
-            <md-list-item>
-              <md-button ng-click="ul.sortByAge()" aria-label="Show Options List">
-                <div>Sort List by Age</div>
-              </md-button>
-            </md-list-item>
-          </md-list>
-        </md-sidenav>
-
-        <md-sidenav ng-click="ul.toggleList()" md-component-id="left" class="md-whiteframe-z2" >
-          <md-list>
-            <md-list-item ng-repeat="it in ul.users">
-                <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-                  <img src="{{it.picture.thumbnail}}" class="avatar"/>
-                  {{it.gender_c}}, {{it.age}}<br>
-                  {{it.name.first}} {{it.name.last}}
+    <div layout="row" layout-margin>
+      <div flex="33" layout="row">
+          <md-sidenav md-component-id="options" class="md-sidenav-right md-whiteframe-4dp" >
+            <md-list>
+              <md-list-item>
+                <md-button ng-click="ul.sortByName()" aria-label="Show Options List">
+                  <div>Sort List by Name (Default)</div>
                 </md-button>
-            </md-list-item>
-          </md-list>
-        </md-sidenav>
+              </md-list-item>
+              <md-list-item>
+                <md-button ng-click="ul.sortByAge()" aria-label="Show Options List">
+                  <div>Sort List by Age</div>
+                </md-button>
+              </md-list-item>
+            </md-list>
+          </md-sidenav>
 
+          <md-sidenav ng-click="ul.toggleList()" md-component-id="left" class="md-whiteframe-z2" >
+            <md-list>
+              <md-list-item ng-repeat="it in ul.users">
+                  <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
+                    <img src="{{it.picture.thumbnail}}" class="avatar"/>
+                    {{it.gender_c}}, {{it.age}}<br>
+                    {{it.name.first}} {{it.name.last}}
+                  </md-button>
+              </md-list-item>
+            </md-list>
+          </md-sidenav>
+
+          <md-content flex id="content">
+            <img src="{{ul.selected.picture.large}}" class="avatar-big"/>
+            <md-button class="share" md-no-ink ng-click="ul.makeContactPhone(ul.selected)">
+              <md-icon md-svg-icon="phone"></md-icon>
+            </md-button>
+            <md-button class="share" md-no-ink ng-click="ul.makeContactTwitter(ul.selected)">
+              <md-icon md-svg-icon="twitter"></md-icon>
+            </md-button>
+            <md-button class="share" md-no-ink ng-click="ul.makeContactGoogleP(ul.selected)">
+              <md-icon md-svg-icon="mail"></md-icon>
+            </md-button>
+            <md-button class="share" md-no-ink ng-click="ul.makeContactHangout(ul.selected)">
+              <md-icon md-svg-icon="hangouts"></md-icon>
+            </md-button>
+            <!-- <h2>{{ul.selected.name}}</h2>
+            <p>{{ul.selected.content}}</p> -->
+            <h2>{{ul.selected.name.first}} {{ul.selected.name.last}}</h2>
+            <h3>Bio</h3>
+            <p>Born in {{ul.selected.dob_year}}, {{ul.selected.name.first}} now lives in {{ul.selected.location.city}}</p>
+            
+          </md-content>
+
+      </div>
+      <div flex="66" layout="row">
         <md-content flex id="content">
-          <img src="{{ul.selected.picture.large}}" class="avatar-big"/>
-          <md-button class="share" md-no-ink ng-click="ul.makeContactPhone(ul.selected)">
-            <md-icon md-svg-icon="phone"></md-icon>
-          </md-button>
-          <md-button class="share" md-no-ink ng-click="ul.makeContactTwitter(ul.selected)">
-            <md-icon md-svg-icon="twitter"></md-icon>
-          </md-button>
-          <md-button class="share" md-no-ink ng-click="ul.makeContactGoogleP(ul.selected)">
-            <md-icon md-svg-icon="mail"></md-icon>
-          </md-button>
-          <md-button class="share" md-no-ink ng-click="ul.makeContactHangout(ul.selected)">
-            <md-icon md-svg-icon="hangouts"></md-icon>
-          </md-button>
-          <!-- <h2>{{ul.selected.name}}</h2>
-          <p>{{ul.selected.content}}</p> -->
-          <h2>{{ul.selected.name.first}} {{ul.selected.name.last}}</h2>
-          <h3>Bio</h3>
-          <p>Born in {{ul.selected.dob_year}}, {{ul.selected.name.first}} now lives in {{ul.selected.location.city}}</p>
-          
+          <h2>Cirriculum Vitae</h2>
         </md-content>
-
+      </div>
     </div>
 
     <script src="../node_modules/angular/angular.js"></script>
