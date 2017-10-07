@@ -87,11 +87,28 @@
 
       </div>
       <div flex="66" layout="row">
-        <md-content flex id="content">
+        <md-content flex id="content" style="overflow: scroll;">
           <h2>Cirriculum Vitae</h2>
-          <h3>Born</h3><p>{{ul.selected.dob}}</p>
-          <h3>Residence</h3><p>{{ul.selected.location.street}}, {{ul.selected.location.city}}, {{ul.selected.location.state}}, {{ul.selected.location.postcode}}</p>
+          <div layout="row" layout-margin>
+            <div flex="50">
+              <h3>Born</h3><p>{{ul.selected.dob}}</p>
+            </div>
+            <div flex="50">
+              <h3>Residence</h3><p>{{ul.selected.location.street}}, {{ul.selected.location.city}}, {{ul.selected.location.state}}, {{ul.selected.location.postcode}}</p>
+            </div>
+          </div>
+          <div layout="row" layout-margin>
+            <div flex="50">
+              <h3>Education</h3><p>University of {{ul.selected.location.state}}</p>
+            </div>
+            <div flex="50">
+              <h3>Languages</h3><p>English, French, Mandarin</p>
+            </div>
+          </div>
           <h3>Summary</h3>
+          <lorem-ipsum words="30"></lorem-ipsum>
+          <lorem-ipsum words="70"></lorem-ipsum>
+          <h3>Work Experience</h3>
           <lorem-ipsum words="30"></lorem-ipsum>
           <lorem-ipsum words="70"></lorem-ipsum>
         </md-content>
