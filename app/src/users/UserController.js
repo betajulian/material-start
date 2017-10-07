@@ -1,7 +1,7 @@
 (function(){
 
   angular
-       .module('users', ['ngSanitize'])
+       .module('users', ['ngLorem'])
        .controller('UserController', [
           'userService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log',
           UserController
